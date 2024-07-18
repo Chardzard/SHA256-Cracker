@@ -16,6 +16,17 @@ init()
 GREEN = Fore.GREEN
 RED = Fore.RED
 
+print("@@@@@@   @@@  @@@   @@@@@@    @@@@@@   @@@@@@@    @@@@@@              @@@@@@@  @@@@@@@    @@@@@@    @@@@@@@  @@@  @@@  @@@@@@@@  @@@@@@@")
+print("@@@@@@@   @@@  @@@  @@@@@@@@  @@@@@@@@  @@@@@@@   @@@@@@@             @@@@@@@@  @@@@@@@@  @@@@@@@@  @@@@@@@@  @@@  @@@  @@@@@@@@  @@@@@@@@")
+print("!@@       @@!  @@@  @@!  @@@       @@@  !@@      !@@                  !@@       @@!  @@@  @@!  @@@  !@@       @@!  !@@  @@!       @@!  @@@")
+print("!@!       !@!  @!@  !@!  @!@      @!@   !@!      !@!                  !@!       !@!  @!@  !@!  @!@  !@!       !@!  @!!  !@!       !@!  @!@")
+print("!!@@!!    @!@!@!@!  @!@!@!@!     !!@    !!@@!!   !!@@!@!   @!@!@!@!@  !@!       @!@!!@!   @!@!@!@!  !@!       @!@@!@!   @!!!:!    @!@!!@!")
+print(" !!@!!!   !!!@!!!!  !!!@!!!!    !!:     @!!@!!!  @!!@!!!!  !!!@!@!!!  !!!       !!@!@!    !!!@!!!!  !!!       !!@!!!    !!!!!:    !!@!@!")
+print("     !:!  !!:  !!!  !!:  !!!   !:!          !:!  !:!  !:!             :!!       !!: :!!   !!:  !!!  :!!       !!: :!!   !!:       !!: :!!")
+print("    !:!   :!:  !:!  :!:  !:!  :!:           !:!  :!:  !:!             :!:       :!:  !:!  :!:  !:!  :!:       :!:  !:!  :!:       :!:  !:!")
+print(":::: ::   ::   :::  ::   :::  :: :::::  :::: ::  :::: :::              ::: :::  ::   :::  ::   :::   ::: :::   ::  :::   :: ::::  ::   :::")
+print(":: : :     :   : :   :   : :  :: : :::  :: : :    :: : :               :: :: :   :   : :   :   : :   :: :: :   :   :::  : :: ::    :   : :")
+
 
 ##############################################################
 # Function: Uses hashlib module to loop through wordlist     #
@@ -51,6 +62,8 @@ def sha256_cracker(wordlist, our_hash, hash_list):
             print(f"{RED}[!] No hashes were found with the given wordlist. Try another one")
             return None
 
+        if clear_text_file:
+            print(f"{GREEN}\nCracked hashes saved to 'cracked_hashes.txt' in current working directory")
         return
 
     if our_hash:
@@ -86,7 +99,7 @@ if hash_to_crack:
     cracked_hash = sha256_cracker(file, hash_to_crack, None)
     if cracked_hash:
         open("cracked_hash.txt", "w").write(f"{GREEN}Hash: " + hash_to_crack + " - Plaintext: " + cracked_hash + "\n")
-
+        print(f"\n{GREEN}Cracked hash saved to 'cracked_hash.txt' in current working directory")
 
 # Used for file of multiple hashes to attempt cracking
 if hash_file:
