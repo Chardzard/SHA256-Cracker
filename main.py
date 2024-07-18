@@ -72,7 +72,7 @@ def sha256_cracker(wordlist, our_hash, hash_list):
             if hashed_element.lower() == our_hash.lower():
                 print(f"{GREEN}[+] Hash Cracked: Hash is " + element)
                 return element
-        print(f"{RED}[!] Hash Not Found")
+        print(f"{RED}[!] Hash not found with the given wordlist. Try another one")
         return None
 
 
