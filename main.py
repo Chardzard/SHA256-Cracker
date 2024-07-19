@@ -71,7 +71,7 @@ def sha256_cracker(wordlist, our_hash, hash_list):
         for element in wordlist:
             hashed_element = hashlib.sha256(element.encode()).hexdigest()
             if hashed_element.lower() == our_hash.lower():
-                print(f"{GREEN}[+] Hash Cracked: Hash is " + element)
+                print(f"{GREEN}[+] Hash Cracked: Hash is " + hashed_element + " - Plaintext is " + element)
                 return element
         print(f"{RED}[!] Hash not found with the given wordlist. Try another one")
         return None
